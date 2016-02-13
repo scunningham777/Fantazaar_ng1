@@ -12,12 +12,12 @@
         function getRoutes() {
             var moduleRoutes = [
                 {
-                    stateName: 'home.items',
+                    stateName: 'items',
                     config: {
-                        url: 'items',
+                        url: '/items',
                         views: {
                             '': {
-                                templateUrl: 'public/views/items.html',
+                                templateUrl: 'views/items.html',
                                 controller: 'ItemsController',
                                 controllerAs: 'vm'
                             }
@@ -26,12 +26,12 @@
                 },
 
                 {
-                    stateName: 'home.itemDetails',
+                    stateName: 'itemDetails',
                     config: {
-                        url: '/item/:id',
+                        url: '/items/:id',
                         views: {
                             '': {
-                                templateUrl: 'public/views/itemDetails.html',
+                                templateUrl: 'views/itemDetails.html',
                                 controller: 'ItemDetailsController',
                                 controllerAs: 'vm'
                             }

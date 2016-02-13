@@ -3,7 +3,7 @@
 
     angular
         .module('fantazaar.core', [
-            'ui-router',
-            'ui-bootstrap'
+            'ui.router'/*,
+            'ui.bootstrap'*/
         ]);
 })();

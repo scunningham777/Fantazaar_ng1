@@ -6,9 +6,7 @@
         .run(runBlock);
 
     /*@ngInject*/
-    function runBlock(routeManagerService) {
-        routeManagerService.handleLaunch();
-        routeManagerService.initRouteWatching();
+    function runBlock() {
     }
 
 })();
