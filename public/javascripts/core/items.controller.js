@@ -6,47 +6,85 @@
         .controller('ItemsController', ItemsController);
 
     /*@ngInject*/
-    function ItemsController(itemsService) {
+    function ItemsController(itemsService, inventoryService, $window) {
         var vm = this;
 
-        vm.items = {};      //use item.id as the key, and item as the value
+        vm.inventory = {};      //use item.name as the key, and then an object with # owned and # sold as the value
+        vm.items = {};      //use item.name as the key, and item as the value
+        vm.incrementItemOwnedCount = incrementItemOwnedCount;
         vm.modifyItemOwnedCount = modifyItemOwnedCount;
         vm.modifyItemSoldCount = modifyItemSoldCount;
-        vm.incrementItemOwnedCount = incrementItemOwnedCount;
+        vm.showItemDetails = showItemDetails;
         vm.transferCountFromOwnedToSold = transferCountFromOwnedToSold;
 
-        initialize();
-        function initialize() {
+        activate();
+        
+        function activate() {
             vm.items = itemsService.getItems();
-        }
-
-        function modifyItemOwnedCount(item, countModifier) {
-            if (!item._id || !vm.items.hasOwnProperty(item._id + "")) {
-                //do some kind of error handling
-                return;
-            }
-
-            var modifiedItem = vm.items[item];
-            modifiedItem.numberOwned += countModifier;
-        }
-
-        function modifyItemSoldCount(item, countModifier) {
-            if (!item._id || !vm.items.hasOwnProperty(item._id + "")) {
-                //do some kind of error handling
-                return;
-            }
-
-            var modifiedItem = vm.items[item];
-            modifiedItem.numberSold += countModifier;
+            vm.inventory = inventoryService.getCurrentPlayerInventory();
         }
 
         function incrementItemOwnedCount(item) {
-            editItemOwnedCount(item, 1);
+            modifyItemOwnedCount(item, 1);
+        }
+
+        function modifyItemOwnedCount(item, countModifier) {
+            if (!_isValidItem(item)) {
+                //do some kind of error handling
+                return;
+            }
+
+            if (!vm.inventory.hasOwnProperty(item.name)) {
+                _initAndAddInventoryItem(item.name);
+            } 
+            
+            var inventoryItem = vm.inventory[item];
+            inventoryItem.numberOwned += countModifier;
+            
+            _persistInventoryUpdates();
+        }
+
+        function modifyItemSoldCount(item, countModifier) {
+            if (!_isValidItem(item)) {
+                //do some kind of error handling
+                return;
+            }
+
+            if (!vm.inventory.hasOwnProperty(item.name)) {
+                _initAndAddInventoryItem(item.name);
+            } 
+
+            var inventoryItem = vm.inventory[item];
+            inventoryItem.numberSold += countModifier;
+            
+            _persistInventoryUpdates();
+        }
+        
+        function showItemDetails(itemName) {
+            if (vm.items.hasOwnProperty(itemName)) {
+                var sourcesString = vm.items[itemName].sources.join("; ");
+                $window.alert("This item requires the following sources: " + sourcesString);
+            }
         }
 
         function transferCountFromOwnedToSold(item, countTransferred) {
-            editItemOwnedCount(item, countTransferred * -1);
-            editItemSoldCount(item, countTransferred);
+            modifyItemOwnedCount(item, countTransferred * -1);
+            modifyItemSoldCount(item, countTransferred);
+        }
+        
+        function _initAndAddInventoryItem(itemName) {
+            vm.inventory[itemName] = {
+                    'numberOwned': 0,
+                    'numberSold': 0
+                };
+        }
+
+        function _isValidItem(item) {
+            return (item.name && vm.items.hasOwnProperty(item.name + ""));
+        }
+        
+        function _persistInventoryUpdates() {
+            return;
         }
     }
 })();

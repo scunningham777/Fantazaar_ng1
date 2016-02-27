@@ -1,1 +1,6 @@
 <p>Here's some items!</p>
+<div ng-repeat="(itemName, item) in vm.items">
+    <h2 ng-click="vm.showItemDetails(itemName)">{{itemName}}</h2>
+    <div>Number Owned: {{vm.inventory[itemName] ? (vm.inventory[itemName].numberOwned || 0) : 0}}</div>
+    <div>Number Sold: {{vm.inventory[itemName] ? (vm.inventory[itemName].numberSold || 0) : 0}}</div>
+</div>

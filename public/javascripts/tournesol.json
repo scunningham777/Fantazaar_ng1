@@ -1,93 +1,88 @@
 {
-  "items": [
-    {
-      "_id": 1,
+  "items": {
+    "Tournesol": {
       "name": "Tournesol",
       "sources": [
         [
           {
-            "source_id": 2,
+            "source": "Gemsteel",
             "quantity_needed": 3
           },
           {
-            "source_id": 3,
+            "source": "Empyreal Soul",
             "quantity_needed": 3
           },
           {
-            "source_id": 4,
+            "source": "Serpentarius",
             "quantity_needed": 3
           }
         ]
       ]
     },
-    {
-      "_id": 2,
+    "Gemsteel": {
       "name": "Gemsteel",
       "sources": [
         "Montblanc reward for 8 espers",
         "90% monograph drop - lvl. 99 Red Chocobo, Ozmone Plain/Haulo Green",
         [
           {
-            "source_id": 5,
+            "source": "Scarletite",
             "quantity_needed": 1
           },
           {
-            "source_id": 6,
+            "source": "Damascus Steel",
             "quantity_needed": 2
           },
           {
-            "source_id": 7,
+            "source": "Hell-Gate's Flame",
             "quantity_needed": 2
           }
         ]
       ]
     },
-    {
-      "_id": 3,
+    "Empyreal Soul": {
       "name": "Empyreal Soul",
       "sources": [
         "Montblanc reward at High Guardian clan rank",
         "6% steal w/TC - lvl. 99 Red Chocobo, Ozmone Plain/Haulo Green",
         [
           {
-            "source_id": 8,
+            "source": "Wargod's Band",
             "quantity_needed": 2
           },
           {
-            "source_id": 9,
+            "source": "Soul Powder",
             "quantity_needed": 1
           },
           {
-            "source_id": 10,
+            "source": "High Arcana",
             "quantity_needed":1
           }
         ]
       ]
     },
-    {
-      "_id": 4,
+    "Serpentarius": {
       "name": "Serpentarius",
       "sources": [
         "Montblanc reward for 13 espers",
         "80% steal w/TC - Zodiark",
         [
           {
-            "source_id": 11,
+            "source": "Snake Skin",
             "quantity_needed": 4
           },
           {
-            "source_id": 12,
+            "source": "Serpent Eye",
             "quantity_needed": 2
           },
           {
-            "source_id": 10,
+            "source": "High Arcana",
             "quantity_needed": 1
           }
         ]
       ]
     },
-    {
-      "_id": 5,
+    "Scarletite": {
       "name": "Scarletite",
       "sources": [
         "80% steal w/TC - Aspidochelon (trophy rare), Cerobi Steppe/Feddik River (40% spawn)",
@@ -96,8 +91,7 @@
         "6% steal w/TC - Pandaemonium, Pharos 1st Ascent/Dunes of Profaning Wind"
       ]
     },
-    {
-      "_id": 6,
+    "Damascus Steel": {
       "name": "Damascus Steel",
       "sources": [
         "Montblanc reward for 13 espers",
@@ -106,24 +100,21 @@
         "6% mono drop - Bune, Pharos second ascent, Penumbra north"
       ]
     },
-    {
-      "_id": 7,
+    "Hell-Gate's Flame": {
       "name": "Hell-Gate's Flame",
       "sources": [
         "5% mono drop or poach - Cerberus, Feywood/Walk of Stolen Truths",
         "5% poach - Wary Wolf, Mosphoran H/Summit Path"
       ]
     },
-    {
-      "_id": 8,
+    "Wargod's Band": {
       "name": "Wargod's Band",
       "sources": [
         "5% mono drop - Leynir, Nabreus D/Lifeless Strand",
         "6% steal w/TC - Victanir (trophy rare), Nam-Yensa S/Yellow Sands"
       ]
     },
-    {
-      "_id": 9,
+    "Soul Powder": {
       "name": "Soul Powder",
       "sources": [
         "Reward for Ixtab hunt ('The Dead Ought Sleep Forever')",
@@ -131,8 +122,7 @@
         "6% steal w/TC - Vorres (trophy rare), Necrohol/Hall of the Ivory Covenant (must provoke dark elemental)"
       ]
     },
-    {
-      "_id": 10,
+    "High Arcana": {
       "name": "High Arcana",
       "sources": [
         "Montblanc reward for 4 espers",
@@ -141,22 +131,21 @@
         "6% steal w/TC - most espers",
         [
           {
-            "source_id": 13,
+            "source": "Arcana",
             "quantity_needed": 10
           },
           {
-            "source_id": 14,
+            "source": "Feystone",
             "quantity_needed": 1
           },
           {
-            "source_id": 15,
+            "source": "Soul of Thamasa",
             "quantity_needed": 1
           }
         ]
       ]
     },
-    {
-      "_id": 11,
+    "Snake Skin": {
       "name": "Snake Skin",
       "sources": [
         "95% poach, 80% steal w/TC, 40-55% drop - Wildsnake, Giza P Dry/Toam Hills (only one at a time)",
@@ -164,8 +153,7 @@
         "6% steal w/TC - Vorres (trophy rare), Necrohol/Hall of the Ivory Covenant (must provoke dark elemental)"
       ]
     },
-    {
-      "_id": 12,
+    "Serpent Eye": {
       "name": "Serpent Eye",
       "sources": [
         "Reward for Marilith hunt ('A Tingling Toast')",
@@ -173,16 +161,14 @@
         "5% poach - Grey Molter (rare), Mosphoran H/Empyrean Way"
       ]
     },
-    {
-      "_id": 13,
+    "Arcana": {
       "name": "Arcana",
       "sources": [
         "Mono drop - most rare game",
         "Canopic jar drop - all enemies"
       ]
     },
-    {
-      "_id": 14,
+    "Feystone": {
       "name": "Feystone",
       "sources": [
         "Drop, steal - most elementals and entites",
@@ -191,8 +177,7 @@
         "1-5% drop - Bangaa Thief, Cerobi Steppe/Old Elanise Road"
       ]
     },
-    {
-      "_id": 15,
+    "Soul of Thamasa": {
       "name": "Soul of Thamasa",
       "sources": [
         "Reward for Deathscythe hunt ('Dead City Watch')",
@@ -200,5 +185,5 @@
         "80% steal w/TC - Ishteen (rare), Barheim Passage/East-West B, The Zeviah S (spawn chance increases over time)"
       ]
     }
-  ]
+  }
 }
