@@ -6,7 +6,7 @@
         .controller('ItemsController', ItemsController);
 
     /*@ngInject*/
-    function ItemsController() {
+    function ItemsController(itemsService) {
         var vm = this;
 
         vm.items = {};      //use item.id as the key, and item as the value
@@ -15,10 +15,14 @@
         vm.incrementItemOwnedCount = incrementItemOwnedCount;
         vm.transferCountFromOwnedToSold = transferCountFromOwnedToSold;
 
+        initialize();
+        function initialize() {
+            vm.items = itemsService.getItems();
+        }
 
         function modifyItemOwnedCount(item, countModifier) {
             if (!item._id || !vm.items.hasOwnProperty(item._id + "")) {
-                //do some kind of error
+                //do some kind of error handling
                 return;
             }
 
@@ -28,7 +32,7 @@
 
         function modifyItemSoldCount(item, countModifier) {
             if (!item._id || !vm.items.hasOwnProperty(item._id + "")) {
-                //do some kind of error
+                //do some kind of error handling
                 return;
             }
 
