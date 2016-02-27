@@ -16,14 +16,24 @@
         vm.transferCountFromOwnedToSold = transferCountFromOwnedToSold;
 
 
-        function modifyItemOwnedCount(item, newItemOwnedCount) {
-            if (!vm.items.hasOwnProperty(item._id + "")) {
+        function modifyItemOwnedCount(item, countModifier) {
+            if (!item._id || !vm.items.hasOwnProperty(item._id + "")) {
+                //do some kind of error
                 return;
             }
+
+            var modifiedItem = vm.items[item];
+            modifiedItem.numberOwned += countModifier;
         }
 
-        function modifyItemSoldCount(item, newItemSoldCount) {
+        function modifyItemSoldCount(item, countModifier) {
+            if (!item._id || !vm.items.hasOwnProperty(item._id + "")) {
+                //do some kind of error
+                return;
+            }
 
+            var modifiedItem = vm.items[item];
+            modifiedItem.numberSold += countModifier;
         }
 
         function incrementItemOwnedCount(item) {
