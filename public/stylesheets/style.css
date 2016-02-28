@@ -1,8 +1,118 @@
+/* CORE */
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    margin: 0px;
+    background-color: #384450;
+    color: #ddd;
 }
 
-a {
-  color: #00B7FF;
+body * {
+    box-sizing: border-box;
+}
+
+/* LAYOUT */
+.layout-restrainWidth800 {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* MODULES */
+.itemTile {
+    width: 50%;
+    float: left;
+    border: 1px solid #384450;
+    overflow: hidden;
+    color: #384450
+}
+
+.itemTile-bg0 {
+    background-color: #644D52;
+    color: #ddd;
+}
+
+.itemTile-bg1 {
+    background-color: #E37B40;
+}
+
+.itemTile-bg2 {
+    background-color: #7BB2C2;
+}
+
+.itemTile-bg3 {
+    background-color: #A49A87;
+}
+
+.itemTile-bg4 {
+    background-color: #F2695C;
+}
+
+.itemTile-bg5 {
+    background-color: #F0CA4D;
+}
+
+.itemTile-bg6 {
+    background-color: #79CFB3;
+}
+
+.itemTile_content {
+    padding: 10px;
+    height: 100px;
+    font-size: 1.8em;
+    text-align: center;
+}
+
+.itemTile_buttonRow {
+    height: 60px;
+}
+
+.itemTile_button {
+    width: 50%;
+    height: 100%;
+    float: left;
+    border-top: 1px solid #384450;
+    cursor: pointer;
+    padding: 10px;
+}
+.itemTile_button:first-child {
+    border-right:1px solid #384450;
+}
+
+.itemTile_countText {
+    font-size: 1.3em;
+}
+
+
+
+
+.colorswatch {
+    background-color: #008;
+    background-color: #00f;    
+    background-color: #080;
+    background-color: #088;
+    background-color: #08f;
+    background-color: #0f0;
+    background-color: #0f8;
+    background-color: #0ff;
+    background-color: #800;
+    background-color: #808;
+    background-color: #80f;
+    background-color: #880;
+    background-color: #88f;
+    background-color: #8f0;
+    background-color: #8f8;
+    background-color: #8ff;
+    background-color: #f00;
+    background-color: #f08;
+    background-color: #f0f;
+    background-color: #f80;
+    background-color: #f88;
+    background-color: #f8f;
+    background-color: #ff0;
+    background-color: #ff8;
+}
+
+.rejects {
+    background-color: #800;
+    
 }

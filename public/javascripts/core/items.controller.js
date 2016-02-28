@@ -38,7 +38,7 @@
                 _initAndAddInventoryItem(item.name);
             } 
             
-            var inventoryItem = vm.inventory[item];
+            var inventoryItem = vm.inventory[item.name];
             inventoryItem.numberOwned += countModifier;
             
             _persistInventoryUpdates();
@@ -54,7 +54,7 @@
                 _initAndAddInventoryItem(item.name);
             } 
 
-            var inventoryItem = vm.inventory[item];
+            var inventoryItem = vm.inventory[item.name];
             inventoryItem.numberSold += countModifier;
             
             _persistInventoryUpdates();
@@ -63,11 +63,18 @@
         function showItemDetails(itemName) {
             if (vm.items.hasOwnProperty(itemName)) {
                 var sourcesString = vm.items[itemName].sources.join("; ");
-                $window.alert("This item requires the following sources: " + sourcesString);
+                $window.alert("This item can be procured from the following sources: " + sourcesString);
             }
         }
 
         function transferCountFromOwnedToSold(item, countTransferred) {
+            if (!_isValidItem(item)) {
+                return;
+            }
+            
+            if (vm.inventory[item.name].numberOwned < countTransferred) {
+                countTransferred = vm.inventory[item.name].numberOwned;
+            }
             modifyItemOwnedCount(item, countTransferred * -1);
             modifyItemSoldCount(item, countTransferred);
         }

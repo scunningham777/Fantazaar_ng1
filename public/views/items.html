@@ -1,6 +1,14 @@
 <p>Here's some items!</p>
-<div ng-repeat="(itemName, item) in vm.items">
-    <h2 ng-click="vm.showItemDetails(itemName)">{{itemName}}</h2>
-    <div>Number Owned: {{vm.inventory[itemName] ? (vm.inventory[itemName].numberOwned || 0) : 0}}</div>
-    <div>Number Sold: {{vm.inventory[itemName] ? (vm.inventory[itemName].numberSold || 0) : 0}}</div>
+<div ng-repeat="(itemName, item) in vm.items" class="itemTile itemTile-bg{{$index%7}}">
+    <div class="itemTile_content" ng-click="vm.showItemDetails(itemName)">{{itemName}}</div>
+    <div class="itemTile_buttonRow">
+        <div class="itemTile_button" ng-click="vm.incrementItemOwnedCount(item)">
+            <span class="itemTile_countText">{{vm.inventory[itemName] ? (vm.inventory[itemName].numberOwned || 0) : 0}}</span>
+            owned
+        </div>
+        <div class="itemTile_button" ng-click="vm.transferCountFromOwnedToSold(item, 1)">
+            <span class="itemTile_countText">{{vm.inventory[itemName] ? (vm.inventory[itemName].numberSold || 0) : 0}}</span>
+            sold
+        </div>
+    </div>
 </div>
