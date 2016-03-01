@@ -1,0 +1,14 @@
+<h1 class="page-header">Fantazaar - {{vm.curItem.name}}</h1>
+<div>
+    This item can be procured from the following sources:
+    <div ng-repeat="stringSource in vm.curItem.sources.filter(vm.isSourceAString)" class="sourcesList_stringSource">
+        {{stringSource}}
+    </div>
+</div>
+<div ng-show="vm.doesCurItemHaveBazaarSource()">
+    This item can be purchased form the Bazaar after selling the following loot items:
+    <div ng-repeat="bazaarSource in vm.curItem.sources.filter(vm.isSourceAnArray)[0]">
+        {{bazaarSource.source}} - {{bazaarSource.quantity_needed}} needed
+    </div>
+</div>
+        
