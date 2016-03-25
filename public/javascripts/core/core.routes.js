@@ -28,7 +28,7 @@
                 {
                     stateName: 'itemDetails',
                     config: {
-                        url: '/items/:id',
+                        url: '/items/:itemName',
                         views: {
                             '': {
                                 templateUrl: 'views/itemDetails.html',

@@ -6,7 +6,7 @@
         .controller('ItemsController', ItemsController);
 
     /*@ngInject*/
-    function ItemsController(itemsService, inventoryService, $window) {
+    function ItemsController(itemsService, inventoryService, $window, $state) {
         var vm = this;
 
         vm.inventory = {};      //use item.name as the key, and then an object with # owned and # sold as the value
@@ -62,8 +62,10 @@
         
         function showItemDetails(itemName) {
             if (vm.items.hasOwnProperty(itemName)) {
-                var sourcesString = vm.items[itemName].sources.join("; ");
-                $window.alert("This item can be procured from the following sources: " + sourcesString);
+//                itemsService.newItemSelected(vm.items[itemName]);
+                $state.go('itemDetails', {itemName: itemName});
+//                var sourcesString = vm.items[itemName].sources.join("; ");
+//                $window.alert("This item can be procured from the following sources: " + sourcesString);
             }
         }
 

@@ -7,11 +7,29 @@
 
     /*@ngInject*/
     function itemsService() {
+        var selectedItem = {};
         var service = {
-            getItems: getItems
+            getSelectedItem: getSelectedItem,
+            getItem: getItem,
+            getItems: getItems,
+            newItemSelected: newItemSelected
         };
 
         return service;
+
+        function getSelectedItem() {
+            return selectedItem;
+        }
+
+        function newItemSelected(item) {
+            if (!!item) {
+                selectedItem = item;
+            }
+        }
+
+        function getItem(itemName) {
+            return !!itemName && getItems()[itemName];
+        }
 
         function getItems() {
             return {
